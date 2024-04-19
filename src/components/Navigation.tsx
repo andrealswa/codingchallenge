@@ -18,7 +18,7 @@ const Navigation: React.FC = () => {
 						<Text>Challenge One</Text>
 					</Tab>
 					<Tab as={ReactRouterLink} to="/challengetwo">
-						<Text>Challenge One</Text>
+						<Text>Challenge Two</Text>
 					</Tab>
 					<Tab as={ReactRouterLink} to="/challengethree">
 						<Text>Challenge Three</Text>

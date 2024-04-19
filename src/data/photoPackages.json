@@ -1,0 +1,20 @@
+[
+	{
+		"id": 1,
+		"name": "Print (4x6 photo)",
+		"price": 5,
+		"image": "/images/pexels-george-milton-7015070.jpg"
+	},
+	{
+		"id": 2,
+		"name": "Panorama",
+		"price": 7,
+		"image": "/images/pexels-lisa-fotios-3586765.jpg"
+	},
+	{
+		"id": 3,
+		"name": "Strips",
+		"price": 5,
+		"image": "/images/pexels-cottonbro-studio-4551839.jpg"
+	}
+]
