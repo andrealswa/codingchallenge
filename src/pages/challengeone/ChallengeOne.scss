@@ -1,0 +1,10 @@
+.challenge-one--container {
+	display: flex;
+	height: 100%;
+	padding: 10px;
+	align-items: flex-end;
+
+	.challenge-one--input-button-container {
+		display: flex;
+	}
+}

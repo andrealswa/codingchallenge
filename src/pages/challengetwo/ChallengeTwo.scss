@@ -1,0 +1,16 @@
+.challenge-two--container {
+	padding: 10px;
+}
+
+.challenge-two--title-and-cart {
+	display: flex;
+}
+.challenge-two--card-container {
+	display: flex;
+	justify-content: space-between;
+	.challenge-two--card-content {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+}
