@@ -1,9 +1,19 @@
-import { HStack, Icon, Text } from '@chakra-ui/react';
+import {
+	Button,
+	Center,
+	HStack,
+	Icon,
+	IconButton,
+	Text,
+	Wrap,
+	WrapItem,
+} from '@chakra-ui/react';
 import { useState } from 'react';
 import { FaShoppingCart } from 'react-icons/fa';
 import './ChallengeTwo.scss';
 import photoPackages from '../../data/photoPackages.json';
 import { PhotoPackageCard } from '../../components/PhotoPackageCard';
+import { usePhotoPackageContext } from '../../context/PhotoPackageContext';
 
 export enum PhotoTypeEnum {
 	print = 'print',
@@ -17,30 +27,30 @@ interface PhotoData {
 }
 
 export const ChallengeTwo: React.FC = () => {
-	const [value, setValue] = useState(1);
-	const [isWinner, setIsWinner] = useState(false);
-	const [cart, setCart] = useState<PhotoData[]>([]);
-
-	const handleAddToCart = () => {
-		// setCart([, ...cart]);
-	};
-
-	const handleChange = (value: number) => setValue(value);
+	const { openCart, cartQuantity } = usePhotoPackageContext();
 
 	return (
 		<div className="challenge-two--container">
 			<div className="challenge-two--card-container">
 				<Text fontSize="4xl">I'm feeling lucky!</Text>
 				<HStack>
-					<Icon boxSize={8} as={FaShoppingCart} />
-					<Text>{cart.length} item(s)</Text>
+					<Button
+						aria-label="Order Items"
+						onClick={openCart}
+						leftIcon={<Icon boxSize={8} as={FaShoppingCart} />}>
+						<Text>{`${cartQuantity} item(s)`}</Text>
+					</Button>
 				</HStack>
 			</div>
-			<div className="challenge-two--card-container">
-				{photoPackages.map((photoPackage) => (
-					<PhotoPackageCard photoPackage={photoPackage} />
-				))}
-			</div>
+			<Center>
+				<Wrap justify="space-between" w="100%">
+					{photoPackages.map((photoPackage) => (
+						<WrapItem>
+							<PhotoPackageCard photoPackage={photoPackage} />
+						</WrapItem>
+					))}
+				</Wrap>
+			</Center>
 		</div>
 	);
 };

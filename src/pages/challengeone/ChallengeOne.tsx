@@ -3,7 +3,6 @@ import {
 	Button,
 	FormControl,
 	FormHelperText,
-	FormLabel,
 	Input,
 	Text,
 } from '@chakra-ui/react';

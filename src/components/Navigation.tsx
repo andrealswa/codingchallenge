@@ -3,30 +3,44 @@ import {
 	TabList,
 	Tabs,
 	Text,
-	Link as ChakraLink,
+	Spacer,
+	TabPanels,
+	TabPanel,
 } from '@chakra-ui/react';
 import { Link as ReactRouterLink } from 'react-router-dom';
 import { ToggleColorTheme } from '../theme/ToggleColorTheme';
-import './Navigation.scss';
+import { ChallengeOne } from '../pages/challengeone/ChallengeOne';
+import { ChallengeTwo } from '../pages/challengetwo/ChallengeTwo';
+import { ChallengeThree } from '../pages/challengethree/ChallengeThree';
 
 const Navigation: React.FC = () => {
 	return (
 		<>
 			<Tabs colorScheme="teal">
 				<TabList>
-					<Tab as={ReactRouterLink} to="/">
+					<Tab>
 						<Text>Challenge One</Text>
 					</Tab>
-					<Tab as={ReactRouterLink} to="/challengetwo">
+					<Tab>
 						<Text>Challenge Two</Text>
 					</Tab>
-					<Tab as={ReactRouterLink} to="/challengethree">
+					<Tab>
 						<Text>Challenge Three</Text>
 					</Tab>
-					<div className="navigation--toggle-color-theme-container">
-						<ToggleColorTheme />
-					</div>
+					<Spacer />
+					<ToggleColorTheme />
 				</TabList>
+				<TabPanels>
+					<TabPanel>
+						<ChallengeOne />
+					</TabPanel>
+					<TabPanel>
+						<ChallengeTwo />
+					</TabPanel>
+					<TabPanel>
+						<ChallengeThree />
+					</TabPanel>
+				</TabPanels>
 			</Tabs>
 		</>
 	);

@@ -7,11 +7,13 @@ interface ToggleColorThemeProps {
 	className?: string;
 }
 
-export const ToggleColorTheme = (props: ToggleColorThemeProps) => {
+export const ToggleColorTheme = ({
+	className,
+}: ToggleColorThemeProps) => {
 	const { colorMode, toggleColorMode } = useColorMode();
 	return (
 		<Button
-			className={props.className ? props.className : ''}
+			className={className ? className : ''}
 			onClick={() => toggleColorMode()}>
 			{colorMode === 'dark' ? <SunIcon /> : <MoonIcon />}
 		</Button>
