@@ -39,15 +39,15 @@ export const ChallengeOne: React.FC = () => {
 					<Button
 						colorScheme="teal"
 						onClick={() => reverseWordOrder(inputSentence)}>
-						Reverse sentence
+						Reverse
 					</Button>
 				</div>
-				{reversedSentence && (
-					<Text fontSize="3xl">{reversedSentence}</Text>
-				)}
 				<FormHelperText>
 					Enter something to be reversed
 				</FormHelperText>
+				{reversedSentence && (
+					<Text fontSize="3xl">{reversedSentence}</Text>
+				)}
 			</FormControl>
 		</div>
 	);
