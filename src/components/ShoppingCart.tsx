@@ -80,6 +80,12 @@ export const ShoppingCart = ({ isOpen }: ShoppingCartProps) => {
 
 				<DrawerBody>
 					<VStack align="flex-start">
+						{isWinner && (
+							<Text as="b" fontSize="2xl">
+								Congratulations! You are the winner of 2 additonal
+								packages with the purchase of one of our orders!
+							</Text>
+						)}
 						{getTotalItems().map((cartItem) => (
 							<>
 								<CartItemComponent key={cartItem.id} {...cartItem} />

@@ -3,12 +3,11 @@ import {
 	Center,
 	HStack,
 	Icon,
-	IconButton,
+	Spacer,
 	Text,
 	Wrap,
 	WrapItem,
 } from '@chakra-ui/react';
-import { useState } from 'react';
 import { FaShoppingCart } from 'react-icons/fa';
 import './ChallengeTwo.scss';
 import photoPackages from '../../data/photoPackages.json';
@@ -19,11 +18,6 @@ export enum PhotoTypeEnum {
 	print = 'print',
 	panorama = 'panorama',
 	strip = 'strip',
-}
-
-interface PhotoData {
-	quantity: number;
-	name: PhotoTypeEnum | null;
 }
 
 export const ChallengeTwo: React.FC = () => {
@@ -42,6 +36,7 @@ export const ChallengeTwo: React.FC = () => {
 					</Button>
 				</HStack>
 			</div>
+			<Spacer />
 			<Center>
 				<Wrap justify="space-between" w="100%">
 					{photoPackages.map((photoPackage) => (

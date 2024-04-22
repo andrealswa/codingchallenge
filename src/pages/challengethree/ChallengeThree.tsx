@@ -1,10 +1,11 @@
 import {
 	Box,
 	Card,
-	Center,
-	Divider,
-	Flex,
-	HStack,
+	CardBody,
+	CardHeader,
+	Heading,
+	Stack,
+	StackDivider,
 	Text,
 	VStack,
 } from '@chakra-ui/react';
@@ -18,23 +19,47 @@ export const ChallengeThree: React.FC = () => {
 
 	const taxOwed = formatCurrency(totalRevenue * 0.08625);
 	return (
-		<Flex>
-			<Box>
-				<Text fontSize="4xl">
-					Only two things in life are guaranteed...
-				</Text>
-			</Box>
+		<div className="challenge-three--container">
+			<Text fontSize="4xl">
+				Only two things in life are guaranteed...
+			</Text>
+
 			<VStack>
-				<Card padding={5}>
-					<Text fontSize="4xl">{`Total Revenue: ${formatCurrency(
-						totalRevenue
-					)}`}</Text>
-					<Divider />
-					<Text fontSize="2xl">{`Tax: ${TAX_VALUE}%`}</Text>
-					<Divider />
-					<Text fontSize="4xl">{`Tax Owed: ${taxOwed}`}</Text>
+				<Card>
+					<CardHeader>
+						<Heading size="md">Total Revenue for Month </Heading>
+					</CardHeader>
+
+					<CardBody>
+						<Stack divider={<StackDivider />} spacing="4">
+							<Box>
+								<Heading size="xs" textTransform="uppercase">
+									Total Revenue:
+								</Heading>
+								<Text pt="2" fontSize="sm">
+									{formatCurrency(totalRevenue)}
+								</Text>
+							</Box>
+							<Box>
+								<Heading size="xs" textTransform="uppercase">
+									Tax:
+								</Heading>
+								<Text pt="2" fontSize="sm">
+									{`${TAX_VALUE}%`}
+								</Text>
+							</Box>
+							<Box>
+								<Heading size="xs" textTransform="uppercase">
+									Tax Owed:
+								</Heading>
+								<Text pt="2" fontSize="sm">
+									{taxOwed}
+								</Text>
+							</Box>
+						</Stack>
+					</CardBody>
 				</Card>
 			</VStack>
-		</Flex>
+		</div>
 	);
 };

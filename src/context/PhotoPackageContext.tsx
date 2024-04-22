@@ -6,6 +6,7 @@ import {
 } from 'react';
 import { ShoppingCart } from '../components/ShoppingCart';
 import { useLocalStorage } from '../hooks/useLocalStorage';
+import moment from 'moment';
 
 export interface CartItem {
 	id: number;
@@ -88,8 +89,13 @@ export const PhotoPackageProvider = ({
 		});
 	};
 
-	setInterval(() => setIsWinner(true), 1000 * 60);
-	setInterval(() => setTotalRevenue(0), 1000 * 60);
+	const daysInMonth = moment().daysInMonth();
+
+	setInterval(() => setIsWinner(true), 1000 * 60 * 60);
+	setInterval(
+		() => setTotalRevenue(0),
+		1000 * 60 * 60 * 24 * daysInMonth
+	);
 
 	const removeFromCart = (id: number) => {
 		setCartItems((currentItems) =>

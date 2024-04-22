@@ -7,7 +7,6 @@ import {
 	TabPanels,
 	TabPanel,
 } from '@chakra-ui/react';
-import { Link as ReactRouterLink } from 'react-router-dom';
 import { ToggleColorTheme } from '../theme/ToggleColorTheme';
 import { ChallengeOne } from '../pages/challengeone/ChallengeOne';
 import { ChallengeTwo } from '../pages/challengetwo/ChallengeTwo';
