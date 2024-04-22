@@ -11,6 +11,7 @@ import {
 } from '@chakra-ui/react';
 import { usePhotoPackageContext } from '../../context/PhotoPackageContext';
 import { formatCurrency } from '../../utilities/formatCurrency';
+import moment from 'moment';
 
 const TAX_VALUE = 8.625;
 
@@ -27,7 +28,11 @@ export const ChallengeThree: React.FC = () => {
 			<VStack>
 				<Card>
 					<CardHeader>
-						<Heading size="md">Total Revenue for Month </Heading>
+						<Heading size="md">
+							<Text>{`Total Revenue for ${moment().format(
+								'MMMM'
+							)}`}</Text>
+						</Heading>
 					</CardHeader>
 
 					<CardBody>
