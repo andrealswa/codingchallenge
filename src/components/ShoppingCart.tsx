@@ -41,14 +41,12 @@ export const ShoppingCart = ({ isOpen }: ShoppingCartProps) => {
 		return total + (item?.price || 0) * currentItem.quantity;
 	}, 0);
 
-	console.log(isWinner);
-
 	const handlePurchase = () => {
 		if (isWinner) {
 			setIsWinner(false);
 		}
 		setTotalRevenue(totalRevenue + total);
-		resetCart();
+		setTimeout(() => resetCart(), 1000);
 		closeCart();
 	};
 
@@ -66,7 +64,6 @@ export const ShoppingCart = ({ isOpen }: ShoppingCartProps) => {
 		}
 	};
 
-	console.log(formatCurrency(totalRevenue));
 	return (
 		<Drawer
 			size="sm"

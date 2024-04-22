@@ -89,12 +89,13 @@ export const PhotoPackageProvider = ({
 		});
 	};
 
-	const daysInMonth = moment().daysInMonth();
+	// const daysInMonth = moment().daysInMonth();
 
 	setInterval(() => setIsWinner(true), 1000 * 60 * 60);
 	setInterval(
 		() => setTotalRevenue(0),
-		1000 * 60 * 60 * 24 * daysInMonth
+		1000 * 60 * 60 * 24
+		// * daysInMonth
 	);
 
 	const removeFromCart = (id: number) => {

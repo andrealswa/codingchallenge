@@ -38,7 +38,7 @@ export const PhotoPackageCard = ({
 		decreaseCartQuantity,
 	} = usePhotoPackageContext();
 	const quantity = getCartItemsQuantity(photoPackage.id);
-	console.log(quantity);
+
 	return (
 		<Card key={photoPackage.id} maxW="sm">
 			<CardBody>
