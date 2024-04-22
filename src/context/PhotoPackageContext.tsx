@@ -6,7 +6,6 @@ import {
 } from 'react';
 import { ShoppingCart } from '../components/ShoppingCart';
 import { useLocalStorage } from '../hooks/useLocalStorage';
-import moment from 'moment';
 
 export interface CartItem {
 	id: number;
