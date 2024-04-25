@@ -2,10 +2,12 @@ import {
 	ReactNode,
 	createContext,
 	useContext,
+	useEffect,
 	useState,
 } from 'react';
 import { ShoppingCart } from '../components/ShoppingCart';
 import { useLocalStorage } from '../hooks/useLocalStorage';
+import photoPackages from '../data/photoPackages.json';
 
 export interface CartItem {
 	id: number;
@@ -90,7 +92,28 @@ export const PhotoPackageProvider = ({
 
 	// const daysInMonth = moment().daysInMonth();
 
-	setInterval(() => setIsWinner(true), 1000 * 60 * 60);
+	// if all 3 packages in cart
+	// randomly set winner using Math.random()
+	const cartItemIds: number[] = cartItems.map(
+		(cartItem) => cartItem.id
+	);
+	const photoPackageIds: number[] = photoPackages.map(
+		(photoPackage) => photoPackage.id
+	);
+	const userAddsAllPackages = photoPackageIds.every(
+		(photoPackageId) => cartItemIds.includes(photoPackageId)
+	);
+
+	useEffect(() => {
+		if (userAddsAllPackages) {
+			// setInterval(() => {
+			setIsWinner(Math.random() < 0.5);
+			// }, 1000 * 60 * 60);
+		} else {
+			setIsWinner(false);
+		}
+	}, [userAddsAllPackages]);
+
 	setInterval(
 		() => setTotalRevenue(0),
 		1000 * 60 * 60 * 24

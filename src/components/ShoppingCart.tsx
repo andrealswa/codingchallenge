@@ -51,12 +51,10 @@ export const ShoppingCart = ({ isOpen }: ShoppingCartProps) => {
 	};
 
 	const getTotalItems = (): CartItem[] => {
-		if (isWinner && cartItems.length === 1) {
-			const freeItems: CartItem[] = photoPackages
-				.filter((photoPackage) => photoPackage.id !== cartItems[0].id)
-				.map((item) => {
-					return { id: item.id, quantity: 1, isFree: true };
-				});
+		if (isWinner) {
+			const freeItems: CartItem[] = photoPackages.map((item) => {
+				return { id: item.id, quantity: 1, isFree: true };
+			});
 
 			return [...cartItems, ...freeItems];
 		} else {
@@ -79,8 +77,8 @@ export const ShoppingCart = ({ isOpen }: ShoppingCartProps) => {
 					<VStack align="flex-start">
 						{isWinner && (
 							<Text as="b" fontSize="2xl">
-								Congratulations! You are the winner of 2 additonal
-								packages with the purchase of one of our orders!
+								Congratulations! You are the winner of 1 additonal
+								package each with the purchase of all of our packages!
 							</Text>
 						)}
 						{getTotalItems().map((cartItem) => (
@@ -89,11 +87,6 @@ export const ShoppingCart = ({ isOpen }: ShoppingCartProps) => {
 							</>
 						))}
 						<Divider />
-						{isWinner && (
-							<>
-								{/* <CartItem key={cartItem.id} {...cartItem} /> */}
-							</>
-						)}
 						<Text as="b" fontSize="2xl">
 							{`Total: ${formatCurrency(total)}`}
 						</Text>

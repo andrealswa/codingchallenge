@@ -40,11 +40,17 @@ export const ChallengeTwo: React.FC = () => {
 			<Center>
 				<Wrap justify="space-between" w="100%">
 					{photoPackages.map((photoPackage) => (
-						<WrapItem>
+						<WrapItem key={photoPackage.id}>
 							<PhotoPackageCard photoPackage={photoPackage} />
 						</WrapItem>
 					))}
 				</Wrap>
+			</Center>
+			<Center>
+				<Text fontSize="3xl">
+					Order all 3 packages for a chance to win 1 additional random
+					package for FREE
+				</Text>
 			</Center>
 		</div>
 	);
